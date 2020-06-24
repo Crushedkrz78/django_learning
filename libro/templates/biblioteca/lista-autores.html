@@ -8,6 +8,7 @@
         <h1>Autores registrados</h1>
         <table border="1">
             <thead>
+                <th>ID</th>
                 <th>Nombres</th>
                 <th>Nacionalidad</th>
                 <th>Accion</th>
@@ -15,9 +16,11 @@
             <tbody>
             {% for a in autores %}
                 <tr>
+                    <td>{{a.id}}</td>
                     <td>{{a.nombre}}</td>
                     <td>{{a.nacionalidad}}</td>
-                    <td><a href="#">VER</a></td>
+                    {% comment %} <td><a href="libros-autor/{{a.id}}">VER LIBROS</a></td> {% endcomment %}
+                    <td><a href=" {% url 'biblioteca_app:lista-libros' a.id %}">VER LIBROS</a></td>
                 </tr>
             {% endfor %}                
             </tbody>
